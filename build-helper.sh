@@ -26,3 +26,5 @@ debuild -b -uc -us
 chown -R $USER:$GROUP /build
 cp -a /build/*.deb /output/
 ls -l /output
+dpkg -l | grep dh-
+dpkg -l | grep virtual

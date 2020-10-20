@@ -1,14 +1,11 @@
-FROM ubuntu:20.04
-ENV TZ=Europe/Paris
-ARG DEBIAN_FRONTEND=noninteractive
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+FROM ubuntu:16.04
+
 RUN set -ex \
     && sed -i -- 's/# deb-src/deb-src/g' /etc/apt/sources.list \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
                build-essential \
                cdbs \
-               software-properties-common \
                devscripts \
                equivs \
                fakeroot \
